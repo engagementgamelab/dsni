@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<title>DSNI Touch</title>
+		<link type="text/css" rel="stylesheet" href="../css/style.css"></link>
+		<style>
+			body {
+				padding: 10px;
+				font-family: Helvetica;
+				font-weight: 700;
+				color: #555;
+			}
+			.routes {
+				margin-left: 40px;
+			}
+			.stop {
+				margin-left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Dudley St @ Langdon St</h2>
+		<div class='stops'>
+			<p>Route 15: Dudley St @ Langdon St</p>
+			<p class='stop dudleystationviauphamscorner'>
+				(Dudley Station via Uphams Corner) <span class='nodata'>no data available</span><span class='minutes'></span>
+			</p>
+			<p class='stop rugglesstationviauphamscorner'>
+				(Ruggles Station via Uphams Corner) <span class='nodata'>no data available</span><span class='minutes'></span>
+			</p>
+		</div>
+		<h2>Dudley St @ Dennis St</h2>
+		<div class='stops'>
+			<p>Route 15: Dudley St @ Dennis St</p>
+			<p class='stop kanesquareviauphamscorner'>
+				(Kane Square via Uphams Corner) <span class='nodata'>no data available</span><span class='minutes'></span>
+			</p>
+			<p class='stop stpeterssquareviakanesquare'>
+				(St. Peter's Square via Kane Square) <span class='nodata'>no data available</span><span class='minutes'></span>
+			</p>
+		</div>
+		<script src='../js/jquery.min.js'></script>
+		<script src='../js/xmltojson.js'></script>
+		<script src="../js/mbta.js"></script>
+	</body>
+</html>
