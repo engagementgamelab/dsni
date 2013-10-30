@@ -8,18 +8,14 @@
 		var url = baseUrl + '&stops=' + route + '|1485&stops=' + route +  '|1498';
 		$.get(url, function(xml) {
 
-			//put up no data available in case
-			$('.nodata').show();
-			$('.minutes').hide();
-
 			var json = $.xml2json(xml);
-			console.log(json);
 
 			//go thru both stops
 			for(var i = 0; i < json.predictions.length; i++) {
 				var stop = json.predictions[i],
 					stopId = stop.stopTag;
 
+				// console.log(stop);
 				//go thru each bus destination (make sure there is more than one before we iterate)
 				var directions = [];
 				if(stop.direction.length) {
@@ -32,8 +28,9 @@
 					var dir = directions[d],
 						busTitle = dir.title.toLowerCase(),
 						prediction;
-						//grab the upcoming prediction (there can be multiples)
-					console.log(busTitle);
+					
+					// console.log(busTitle);	
+					//grab the upcoming prediction (there can be multiples)
 					if(dir.prediction.length) {
 						prediction = dir.prediction[0];
 					} else {
@@ -52,13 +49,20 @@
 					selectorNoData.hide();
 				}
 			}
-
 		});
-		// setTimeout(function() {
-		// 	_getStatus(15);
-		// }, updateInterval);
 	}
-	_getStatus(15);
+
+	function _update() {
+		//put up no data available in case
+		$('.nodata').show();
+		$('.minutes').hide();
+
+		_getStatus(15);
+		_getStatus(41);
+		setTimeout(_update, updateInterval);
+	}
+	
+	_update();
    // $.ajax({
    //      url: ,
    //      dataType: 'json'
