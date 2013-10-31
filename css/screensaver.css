@@ -14,7 +14,7 @@ p {
 .stop {
 	position: absolute;
 	top: 20px;
-	width: 320px;
+	width: 380px;
 }
 .langdon {
 	left: 40px;
@@ -23,15 +23,18 @@ p {
 	right: 40px;
 }
 
-.pic, .minutes {
-	width: 140px;
+.pic {
+	width: 170px;
 	margin-left: 20px;
 	float: left;
 }
 
 .minutes {
-	border-radius: 70px;
+	width: 140px;
 	height: 140px;
+	margin-left: 20px;
+	float: left;
+	border-radius: 70px;
 	color: white;
 	padding-top: 25px;
 }
@@ -41,7 +44,7 @@ p {
 .bus {
 	margin-bottom: 60px;
 }
-.bus p, h2 {
+.bus p, h1 {
 	text-align: center;
 }
 .bus p.text {
