@@ -18,8 +18,8 @@
 				$('.stop1498 .bus15 .text').text(nextDennis.title);
 
 				//add color
-				$('.stop1485 .bus15 .minutes').removeClass('prox1, prox2, prox3, prox4, prox5');
-				$('.stop1498 .bus15 .minutes').removeClass('prox1, prox2, prox3, prox4, prox5');
+				$('.stop1485 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				$('.stop1498 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
 				if(nextLangdon.minutes < 3) {
 					$('.stop1485 .bus15 .minutes').addClass('prox1');
 				} else if(nextLangdon.minutes < 7) {
@@ -58,8 +58,8 @@
 				$('.stop1485 .bus41 .text').text(nextLangdon.title);
 				$('.stop1498 .bus41 .text').text(nextDennis.title);
 
-				$('.stop1485 .bus41 .minutes').removeClass('prox1, prox2, prox3, prox4, prox5');
-				$('.stop1498 .bus11 .minutes').removeClass('prox1, prox2, prox3, prox4, prox5');
+				$('.stop1485 .bus41 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				$('.stop1498 .bus11 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
 				if(nextLangdon.minutes < 3) {
 					$('.stop1485 .bus41 .minutes').addClass('prox1');
 				} else if(nextLangdon.minutes < 7) {
@@ -75,7 +75,7 @@
 					$('.stop1498 .bus41 .minutes').addClass('prox1');
 				} else if(nextDennis.minutes < 7) {
 					$('.stop1498 .bus41 .minutes').addClass('prox2');
-				} else if(nextDennis.minutes < 11) {
+				} else if(nextDennis.minutes < 13) {
 					$('.stop1498 .bus41 .minutes').addClass('prox3');
 				} else if(nextDennis.minutes < 20) {
 					$('.stop1498 .bus41 .minutes').addClass('prox4');

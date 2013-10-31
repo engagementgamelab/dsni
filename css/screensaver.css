@@ -5,27 +5,42 @@ body {
 	padding: 0;
 	margin: 0;
 	font-family: Helvetica;
-	color: #555;
+	color: #aaa;
+	background: #444;
 }
 p {
 	margin: 0;
 	padding: 0;
 }
-.stop {
-	position: absolute;
-	top: 20px;
-	width: 380px;
+
+.mbta {
+	position: relative;
+	margin-top: 40px;
 }
+
+.stop {
+	/*position: absolute;*/
+	top: 20px;
+	width: 480px;
+	/*border-radius: 15px;*/
+}
+
+.stopName {
+	color: #eee;
+	text-align: center;
+}
+
 .langdon {
-	left: 40px;
+	left: 60px;
+	float: left;
 }
 .dennis {
-	right: 40px;
+	right: 60px;
+	float: right;
 }
 
 .pic {
-	width: 170px;
-	margin-left: 20px;
+	width: 240px;
 	float: left;
 }
 
@@ -38,13 +53,14 @@ p {
 	color: white;
 	padding-top: 25px;
 }
+
 .minutes span {
 	font-size: 3em;
 }
 .bus {
 	margin-bottom: 60px;
 }
-.bus p, h1 {
+.bus p {
 	text-align: center;
 }
 .bus p.text {
@@ -65,4 +81,17 @@ p {
 }
 .prox5 {
 	background: #3288BD;
+}
+
+.instructions {
+	clear: both;
+	color: #FEE08B;
+	font-size: 2em;
+	text-align: center;
+	margin: 0 auto;
+	width: 400px;
+}
+
+.spanish, .portuguese {
+	display: none;
 }
