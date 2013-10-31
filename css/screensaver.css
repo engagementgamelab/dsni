@@ -1,14 +1,20 @@
+* {
+	box-sizing: border-box;
+}
 body {
 	padding: 0;
 	margin: 0;
 	font-family: Helvetica;
 	color: #555;
 }
-
+p {
+	margin: 0;
+	padding: 0;
+}
 .stop {
 	position: absolute;
 	top: 20px;
-	width: 40%;
+	width: 320px;
 }
 .langdon {
 	left: 40px;
@@ -16,6 +22,44 @@ body {
 .dennis {
 	right: 40px;
 }
-.dennis p, .dennis h2 {
-	text-align: right;
+
+.pic, .minutes {
+	width: 140px;
+	margin-left: 20px;
+	float: left;
+}
+
+.minutes {
+	border-radius: 70px;
+	height: 140px;
+	color: white;
+	padding-top: 25px;
+}
+.minutes span {
+	font-size: 3em;
+}
+.bus {
+	margin-bottom: 60px;
+}
+.bus p, h2 {
+	text-align: center;
+}
+.bus p.text {
+	padding-top: 10px;
+	clear: both;
+}
+.prox1 {
+	background: #D53E4F;
+}
+.prox2 {
+	background: #FC8D59;
+}
+.prox3 {
+	background: #FEE08B;
+}
+.prox4 {
+	background: #99D594;
+}
+.prox5 {
+	background: #3288BD;
 }
