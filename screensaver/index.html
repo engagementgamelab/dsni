@@ -3,48 +3,67 @@
 	<head>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<title>DSNI Touch</title>
+		<link type="text/css" rel="stylesheet" href="../css/base.css"></link>
+		<link type="text/css" rel="stylesheet" href="../css/globals.css"></link>
 		<link type="text/css" rel="stylesheet" href="../css/screensaver.css"></link>
 	</head>
 	<body>
-		<div class='mbta'>
-			<div class='langdon stop'>
-				<h1 class='stopName'>Dudley St @ Langdon St</h1>
-				<div class='stop1485'>
-					<div class='bus bus15'>
-						<p class='pic'><img src='../img/bus15.png'></p>
-						<p class='minutes'><span></span><br> minutes away</p>
-						<p class='text'></p>
+		<!-- <div class='boundary'></div> -->
+		<div class='container'>
+			<div class='mbta'>
+				<div class='langdon stop'>
+					<h1 class='stopName'>Dudley St @ Langdon St</h1>
+					<div class='stop1485'>
+						<div class='bus bus15'>
+							<p class='pic'><img src='../img/bus15.png'></p>
+							<p class='minutes'><span></span><br> minutes away</p>
+							<p class='text'></p>
+						</div>
+							<div class='bus bus41'>
+							<p class='pic'><img src='../img/bus41.png'></p>
+							<p class='minutes'><span></span><br> minutes away</p>
+							<p class='text'></p>
+						</div>
 					</div>
-						<div class='bus bus41'>
-						<p class='pic'><img src='../img/bus41.png'></p>
-						<p class='minutes'><span></span><br> minutes away</p>
-						<p class='text'></p>
+				</div>
+				<div class='dennis stop'>
+					<h1 class='stopName'>Dudley St @ Dennis St</h1>
+					<div class='stop1498'>
+						<div class='bus bus15'>
+							<p class='pic'><img src='../img/bus15.png'></p>
+							<p class='minutes'><span></span><br> minutes away</p>
+							<p class='text'></p>
+						</div>
+							<div class='bus bus41'>
+							<p class='pic'><img src='../img/bus41.png'></p>
+							<p class='minutes'><span></span><br> minutes away</p>
+							<p class='text'></p>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class='dennis stop'>
-				<h1 class='stopName'>Dudley St @ Dennis St</h1>
-				<div class='stop1498'>
-					<div class='bus bus15'>
-						<p class='pic'><img src='../img/bus15.png'></p>
-						<p class='minutes'><span></span><br> minutes away</p>
-						<p class='text'></p>
-					</div>
-						<div class='bus bus41'>
-						<p class='pic'><img src='../img/bus41.png'></p>
-						<p class='minutes'><span></span><br> minutes away</p>
-						<p class='text'></p>
-					</div>
-				</div>
+			<div class='slideshow'>
+			</div>
+			<div class='touchLeft'>
+				<img src='../img/touch.png'>
+				<p class='languages'>
+					<span class='english'>TOUCH TO BEGIN</span>
+					<span class='spanish'>TOCA PARA EMPEZAR</span>
+					<span class='portuguese'>TOCAR PARA COME&Ccedil;AR</span>
+				</p>
+			</div>
+			<div class='touchRight'>
+				<img src='../img/touch.png'>
+				<p class='languages'>
+					<span class='english'>TOUCH TO BEGIN</span>
+					<span class='spanish'>TOCA PARA EMPEZAR</span>
+					<span class='portuguese'>TOCAR PARA COME&Ccedil;AR</span>
+				</p>
 			</div>
 		</div>
-		<!-- <p class='instructions'>
-			<span class='english'>TOUCH TO ACTIVATE</span>
-			<span class='spanish'>TOQUE PARA ACTIVAR</span>
-			<span class='portuguese'>TOCAR PARA ATIVAR</span>
-		</p> -->
 		<script src='../js/jquery.min.js'></script>
 		<script src='../js/xmltojson.js'></script>
+		<script src="../js/transit.js"></script>
 		<script src="../js/mbta.js"></script>
 		<script src="../js/screensaver.js"></script>
 	</body>

@@ -1,7 +1,20 @@
 //1485 dudley st @ langdon st
 //1498 dudley st @ dennis st
 (function() {
-	var updateInterval = 65000;
+	var updateInterval = 65000,
+		numImages = 3,
+		slideshowInterval = 10000,
+		currentSlide,
+		currentElement,
+		touchInterval = 4000,
+		languages = ['english','spanish','portuguese'],
+		currentLanguage = 0,
+		touchLeft,
+		$allLanguages = $('.languages span'),
+		$touchLeft = $('.touchLeft'),
+		$touchRight = $('.touchRight'),
+		touchShowing;
+
 	function _update() {
 		$mbta.getPredictions(15, function(err,results) {
 			if(err) {
@@ -94,5 +107,89 @@
 		return buses;
 	}
 
+	function _loadImage(num) {
+		var img = new Image();
+		img.onload = function() {
+			$('.slideshow').append(img);
+			num++;
+			if(num >= numImages) {
+				_startSlideshow();
+			} else {
+				_loadImage(num);
+			}
+		};
+
+		// img.src = '../img/screensaver' + num + '.png';
+		img.src = 'http://placehold.it/720x360.png';
+	}
+
+	function _startSlideshow() {
+		//show first image
+		$('.slideshow img').first().show();
+		currentSlide = 0;
+		currentElement = $('.slideshow img').eq(currentSlide);
+		//begin transition timeout
+		setTimeout(_transitionSlideshow, slideshowInterval);
+	}
+
+	function _transitionSlideshow() {
+		//fade out current image
+		currentElement.fadeOut(function() {
+			$(this).hide();
+			currentSlide++;
+			if(currentSlide >= numImages) {
+				currentSlide = 0;
+			}
+			currentElement = $('.slideshow img').eq(currentSlide);
+			currentElement.fadeIn();
+			setTimeout(_transitionSlideshow, slideshowInterval);
+		});
+	}
+
+	function _updateTouch() {
+		//if it was showing, hide it, switch them
+		if(touchShowing) {
+			_hideTouch();
+		} else {
+			_showTouch();
+		}
+
+		touchShowing = !touchShowing;
+		setTimeout(_updateTouch, touchInterval);
+	}
+
+	function _hideTouch() {
+		//transition off current one
+		if(touchLeft) {
+			$touchLeft.transition({x: 0, y: 0}, 1000 , 'ease');
+		} else {
+			$touchRight.transition({x: 0, y: 0}, 1000 , 'ease');
+		}
+
+		//swap for next time and change language
+		touchLeft = !touchLeft;
+		currentLanguage++;
+
+		if(currentLanguage >= languages.length) {
+			currentLanguage = 0;
+		}
+	}
+
+	function _showTouch() {
+		//show next language
+		var languageSel = $('.' + languages[currentLanguage]);
+		$allLanguages.hide();
+		languageSel.show();
+
+		if(touchLeft) {
+			$touchLeft.transition({x: 100, y: -200}, 1000 , 'ease');
+		} else {
+			$touchRight.transition({x: -100, y: -200}, 1000 , 'ease');
+		}
+	}
+	//start it up!
 	_update();
+	_updateTouch();
+	_loadImage(0);
+
 })();

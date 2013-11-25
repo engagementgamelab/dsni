@@ -1,0 +1,34 @@
+* {
+	box-sizing: border-box;
+}
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;	
+}
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Helvetica, sans-serif;
+	color: #333;
+	background: #fff;
+	position: relative;
+}
+
+h1,h2,h3,h4 {
+	font-family: Helvetica, sans-serif;
+}
+
+.container {
+	margin-top: 20px;
+}
+.boundary {
+	position: absolute;
+	width: 1024px;
+	height: 576px;;
+	border: 2px dashed gray;
+}
+
+.container .homeMenu {
+	float: right;
+}
