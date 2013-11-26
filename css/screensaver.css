@@ -142,3 +142,12 @@
         background-position: 130% 0%;
     }
 }
+
+.logos {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 288px;
+	height: 71px;
+	background: url(../img/screensaver/logos.png) no-repeat;
+}
