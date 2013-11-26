@@ -39,7 +39,7 @@ h1,h2,h3,h4 {
 	position: absolute;
 	width: 1024px;
 	height: 576px;;
-	border: 2px dashed gray;
+	border: 2px dashed rgba(50,50,50,0.2);
 }
 
 .container .homeMenu {
