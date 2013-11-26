@@ -1,70 +1,93 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name='viewport' content='initial-scale=1.0, user-scalable=no' />
 		<title>DSNI Touch</title>
-		<link type="text/css" rel="stylesheet" href="../css/base.css"></link>
-		<link type="text/css" rel="stylesheet" href="../css/globals.css"></link>
-		<link type="text/css" rel="stylesheet" href="../css/screensaver.css"></link>
+		<link href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
+		<link type='text/css' rel='stylesheet' href='../css/base.css'></link>
+		<link type='text/css' rel='stylesheet' href='../css/globals.css'></link>
+		<link type='text/css' rel='stylesheet' href='../css/screensaver.css'></link>
 	</head>
 	<body>
 		<!-- <div class='boundary'></div> -->
 		<div class='container'>
 			<div class='mbta'>
-				<div class='langdon stop'>
-					<h1 class='stopName'>Dudley St @ Langdon St</h1>
-					<div class='stop1485'>
+				<div class='east stop'>
+					<div class='animatedBusLeft'></div>
+					<h3 class='stopName'>Dudley St @ East Cottage St</h3>
+					<div class='stop1484'>
 						<div class='bus bus15'>
-							<p class='pic'><img src='../img/bus15.png'></p>
-							<p class='minutes'><span></span><br> minutes away</p>
-							<p class='text'></p>
+							<p class='route'>15</p>
+							<p class='data'>
+								<i class='prediction fa fa-clock-o'></i>
+								<span class='prediction minutes'></span>
+								<span class='prediction postMin'> mins</span>
+								<span class='noPrediction'>no buses</span>
+								<span class='station'></span>
+							</p>
 						</div>
 							<div class='bus bus41'>
-							<p class='pic'><img src='../img/bus41.png'></p>
-							<p class='minutes'><span></span><br> minutes away</p>
-							<p class='text'></p>
+							<p class='route'>41</p>
+							<p class='data'>
+								<i class='prediction fa fa-clock-o'></i>
+								<span class='prediction minutes'></span>
+								<span class='prediction postMin'> mins</span>
+								<span class='noPrediction'>no buses</span>
+								<span class='station'></span>
+							</p>
 						</div>
 					</div>
 				</div>
-				<div class='dennis stop'>
-					<h1 class='stopName'>Dudley St @ Dennis St</h1>
-					<div class='stop1498'>
+				<div class='west stop'>
+					<div class='animatedBusRight'></div>
+					<h3 class='stopName'>Dudley St @ West Cottage St</h3>
+					<div class='stop1499'>
 						<div class='bus bus15'>
-							<p class='pic'><img src='../img/bus15.png'></p>
-							<p class='minutes'><span></span><br> minutes away</p>
-							<p class='text'></p>
+							<p class='route'>15</p>
+							<p class='data'>
+								<i class='prediction fa fa-clock-o'></i>
+								<span class='prediction minutes'></span>
+								<span class='prediction postMin'> mins</span>
+								<span class='noPrediction'>no buses</span>
+								<span class='station'></span>
+							</p>
 						</div>
 							<div class='bus bus41'>
-							<p class='pic'><img src='../img/bus41.png'></p>
-							<p class='minutes'><span></span><br> minutes away</p>
-							<p class='text'></p>
+							<p class='route'>41</p>
+							<p class='data'>
+								<i class='prediction fa fa-clock-o'></i>
+								<span class='prediction minutes'></span>
+								<span class='prediction postMin'> mins</span>
+								<span class='noPrediction'>no buses</span>
+								<span class='station'></span>
+							</p>
 						</div>
-					</div>
+					</div>	
 				</div>
 			</div>
 			<div class='slideshow'>
 			</div>
 			<div class='touchLeft'>
-				<img src='../img/touch.png'>
+				<img src='../img/screensaver/touch.png'>
 				<p class='languages'>
 					<span class='english'>TOUCH TO BEGIN</span>
 					<span class='spanish'>TOCA PARA EMPEZAR</span>
 					<span class='portuguese'>TOCAR PARA COME&Ccedil;AR</span>
 				</p>
 			</div>
-			<div class='touchRight'>
-				<img src='../img/touch.png'>
+			<!-- <div class='touchRight'>
+				<img src='../img/screensaver/touch.png'>
 				<p class='languages'>
 					<span class='english'>TOUCH TO BEGIN</span>
 					<span class='spanish'>TOCA PARA EMPEZAR</span>
 					<span class='portuguese'>TOCAR PARA COME&Ccedil;AR</span>
 				</p>
-			</div>
+			</div> -->
 		</div>
-		<script src='../js/jquery.min.js'></script>
-		<script src='../js/xmltojson.js'></script>
-		<script src="../js/transit.js"></script>
-		<script src="../js/mbta.js"></script>
-		<script src="../js/screensaver.js"></script>
+		<script src='../js/libs/jquery.min.js'></script>
+		<script src='../js/libs/xmltojson.js'></script>
+		<script src='../js/libs/transit.js'></script>
+		<script src='../js/mbta.js'></script>
+		<script src='../js/screensaver.js'></script>
 	</body>
 </html>

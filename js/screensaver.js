@@ -1,18 +1,21 @@
-//1485 dudley st @ langdon st
-//1498 dudley st @ dennis st
+//1485 dudley st @ Langdon st
+//1498 dudley st @ Dennis st
+//1499 dudley st @ w. cottage st
+//1484 dudley st @ e. cottage st
 (function() {
 	var updateInterval = 65000,
-		numImages = 3,
+		numImages = 2,
 		slideshowInterval = 10000,
 		currentSlide,
 		currentElement,
-		touchInterval = 4000,
+		touchIntervalShow = 4000,
+		touchIntervalHide = 15000,
 		languages = ['english','spanish','portuguese'],
 		currentLanguage = 0,
-		touchLeft,
+		// touchLeft,
 		$allLanguages = $('.languages span'),
 		$touchLeft = $('.touchLeft'),
-		$touchRight = $('.touchRight'),
+		// $touchRight = $('.touchRight'),
 		touchShowing;
 
 	function _update() {
@@ -20,81 +23,127 @@
 			if(err) {
 				console.log(err);
 			} else {
-				var sortedLangdon = _sortByMinutes(results['1485']),
-					sortedDennis = _sortByMinutes(results['1498']),
-					nextLangdon = sortedLangdon[0],
-					nextDennis = sortedDennis[0];
+				var sortedEast = _sortByMinutes(results['1484']),
+					sortedWest = _sortByMinutes(results['1499']),
+					nextEast = sortedEast[0],
+					nextWest = sortedWest[0];
 
-				$('.stop1485 .bus15 .minutes span').text(nextLangdon.minutes);
-				$('.stop1498 .bus15 .minutes span').text(nextDennis.minutes);
-				$('.stop1485 .bus15 .text').text(nextLangdon.title);
-				$('.stop1498 .bus15 .text').text(nextDennis.title);
+				if(nextEast.minutes === 'no prediction') {
+					$('.stop1484 .bus15 .prediction').hide();
+					$('.stop1484 .bus15 .noPrediction').show();
+				} else {
+					$('.stop1484 .bus15 .prediction').show();
+					$('.stop1484 .bus15 .noPrediction').hide();
+				}
+				if(nextWest.minutes === 'no prediction') {
+					$('.stop1499 .bus15 .prediction').hide();
+					$('.stop1499 .bus15 .noPrediction').show();
+				} else {
+					$('.stop1499 .bus15 .prediction').show();
+					$('.stop1499 .bus15 .noPrediction').hide();
+				}
+
+				$('.stop1484 .bus15 .minutes').text(nextEast.minutes);
+				$('.stop1499 .bus15 .minutes').text(nextWest.minutes);
+				$('.stop1484 .bus15 .station').text(nextEast.title);
+				$('.stop1499 .bus15 .station').text(nextWest.title);
 
 				//add color
-				$('.stop1485 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
-				$('.stop1498 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
-				if(nextLangdon.minutes < 3) {
-					$('.stop1485 .bus15 .minutes').addClass('prox1');
-				} else if(nextLangdon.minutes < 7) {
-					$('.stop1485 .bus15 .minutes').addClass('prox2');
-				} else if(nextLangdon.minutes < 13) {
-					$('.stop1485 .bus15 .minutes').addClass('prox3');
-				} else if(nextLangdon.minutes < 20) {
-					$('.stop1485 .bus15 .minutes').addClass('prox4');
+				$('.stop1484 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				$('.stop1499 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				
+				var proxClass1 = 'prox';
+				if(nextEast.minutes < 3) {
+					proxClass1 += 1;
+				} else if(nextEast.minutes < 7) {
+					proxClass1 += 2;
+				} else if(nextEast.minutes < 13) {
+					proxClass1 += 3;
+				} else if(nextEast.minutes < 20) {
+					proxClass1 += 4;
 				} else {
-					$('.stop1485 .bus15 .minutes').addClass('prox5');
+					proxClass1 += 5;
 				}
-				if(nextDennis.minutes < 3) {
-					$('.stop1498 .bus15 .minutes').addClass('prox1');
-				} else if(nextDennis.minutes < 7) {
-					$('.stop1498 .bus15 .minutes').addClass('prox2');
-				} else if(nextDennis.minutes < 13) {
-					$('.stop1498 .bus15 .minutes').addClass('prox3');
-				} else if(nextDennis.minutes < 20) {
-					$('.stop1498 .bus15 .minutes').addClass('prox4');
+				
+				$('.stop1484 .bus15 .data').addClass(proxClass1);
+
+				var proxClass2 = 'prox';
+				if(nextWest.minutes < 3) {
+					proxClass2 += 1;
+				} else if(nextWest.minutes < 7) {
+					proxClass2 += 2;
+				} else if(nextWest.minutes < 13) {
+					proxClass2 += 3;
+				} else if(nextWest.minutes < 20) {
+					proxClass2 += 4;
 				} else {
-					$('.stop1498 .bus15 .minutes').addClass('prox5');
+					proxClass2 += 5;
 				}
+				
+				$('.stop1499 .bus15 .data').addClass(proxClass2);
 			}
 		});
 		$mbta.getPredictions(41, function(err, results) {
 			if(err) {
 				console.log(err);
 			} else {
-				var sortedLangdon = _sortByMinutes(results['1485']),
-					sortedDennis = _sortByMinutes(results['1498']),
-					nextLangdon = sortedLangdon[0],
-					nextDennis = sortedDennis[0];
+				var sortedEast = _sortByMinutes(results['1484']),
+					sortedWest = _sortByMinutes(results['1499']),
+					nextEast = sortedEast[0],
+					nextWest = sortedWest[0];
 
-				$('.stop1485 .bus41 .minutes span').text(nextLangdon.minutes);
-				$('.stop1498 .bus41 .minutes span').text(nextDennis.minutes);
-				$('.stop1485 .bus41 .text').text(nextLangdon.title);
-				$('.stop1498 .bus41 .text').text(nextDennis.title);
+				if(nextEast.minutes === 'no prediction') {
+					$('.stop1484 .bus41 .prediction').hide();
+					$('.stop1484 .bus41 .noPrediction').show();
+				} else {
+					$('.stop1484 .bus41 .prediction').show();
+					$('.stop1484 .bus41 .noPrediction').hide();
+				}
+				if(nextWest.minutes === 'no prediction') {
+					$('.stop1499 .bus41 .prediction').hide();
+					$('.stop1499 .bus41 .noPrediction').show();
+				} else {
+					$('.stop1499 .bus41 .prediction').show();
+					$('.stop1499 .bus41 .noPrediction').hide();
+				}
 
-				$('.stop1485 .bus41 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
-				$('.stop1498 .bus11 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
-				if(nextLangdon.minutes < 3) {
-					$('.stop1485 .bus41 .minutes').addClass('prox1');
-				} else if(nextLangdon.minutes < 7) {
-					$('.stop1485 .bus41 .minutes').addClass('prox2');
-				} else if(nextLangdon.minutes < 13) {
-					$('.stop1485 .bus41 .minutes').addClass('prox3');
-				} else if(nextLangdon.minutes < 20) {
-					$('.stop1485 .bus41 .minutes').addClass('prox4');
+				$('.stop1484 .bus41 .minutes').text(nextEast.minutes);
+				$('.stop1499 .bus41 .minutes').text(nextWest.minutes);
+				$('.stop1484 .bus41 .station').text(nextEast.title);
+				$('.stop1499 .bus41 .station').text(nextWest.title);
+
+				$('.stop1484 .bus41 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				$('.stop1499 .bus11 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+
+				var proxClass1 = 'prox';
+				if(nextEast.minutes < 3) {
+					proxClass1 += 1;
+				} else if(nextEast.minutes < 7) {
+					proxClass1 += 2;
+				} else if(nextEast.minutes < 13) {
+					proxClass1 += 3;
+				} else if(nextEast.minutes < 20) {
+					proxClass1 += 4;
 				} else {
-					$('.stop1485 .bus41 .minutes').addClass('prox5');
+					proxClass1 += 5;
 				}
-				if(nextDennis.minutes < 3) {
-					$('.stop1498 .bus41 .minutes').addClass('prox1');
-				} else if(nextDennis.minutes < 7) {
-					$('.stop1498 .bus41 .minutes').addClass('prox2');
-				} else if(nextDennis.minutes < 13) {
-					$('.stop1498 .bus41 .minutes').addClass('prox3');
-				} else if(nextDennis.minutes < 20) {
-					$('.stop1498 .bus41 .minutes').addClass('prox4');
+				
+				$('.stop1484 .bus41 .data').addClass(proxClass1);
+				
+				var proxClass2 = 'prox';
+				if(nextWest.minutes < 3) {
+					proxClass2 += 1;
+				} else if(nextWest.minutes < 7) {
+					proxClass2 += 2;
+				} else if(nextWest.minutes < 13) {
+					proxClass2 += 3;
+				} else if(nextWest.minutes < 20) {
+					proxClass2 += 4;
 				} else {
-					$('.stop1498 .bus41 .minutes').addClass('prox5');
+					proxClass2 += 5;
 				}
+				
+				$('.stop1499 .bus41 .data').addClass(proxClass2);
 			}
 		});
 		setTimeout(_update, updateInterval);
@@ -119,8 +168,8 @@
 			}
 		};
 
-		// img.src = '../img/screensaver' + num + '.png';
-		img.src = 'http://placehold.it/720x360.png';
+		img.src = '../img/screensaver/quotes/' + num + '.png';
+		// img.src = 'http://placehold.it/720x360.png';
 	}
 
 	function _startSlideshow() {
@@ -155,24 +204,25 @@
 		}
 
 		touchShowing = !touchShowing;
-		setTimeout(_updateTouch, touchInterval);
 	}
 
 	function _hideTouch() {
 		//transition off current one
-		if(touchLeft) {
-			$touchLeft.transition({x: 0, y: 0}, 1000 , 'ease');
-		} else {
-			$touchRight.transition({x: 0, y: 0}, 1000 , 'ease');
-		}
+		// if(touchLeft) {
+		// 	$touchLeft.transition({x: 0, y: 0}, 1000 , 'ease');
+		// } else {
+		// 	$touchRight.transition({x: 0, y: 0}, 1000 , 'ease');
+		// }
+		$touchLeft.transition({x: 0, y: 0}, 1000 , 'ease');
 
 		//swap for next time and change language
-		touchLeft = !touchLeft;
+		// touchLeft = !touchLeft;
 		currentLanguage++;
 
 		if(currentLanguage >= languages.length) {
 			currentLanguage = 0;
 		}
+		setTimeout(_updateTouch, touchIntervalHide);
 	}
 
 	function _showTouch() {
@@ -181,11 +231,17 @@
 		$allLanguages.hide();
 		languageSel.show();
 
-		if(touchLeft) {
-			$touchLeft.transition({x: 100, y: -200}, 1000 , 'ease');
-		} else {
-			$touchRight.transition({x: -100, y: -200}, 1000 , 'ease');
-		}
+		// if(touchLeft) {
+		// 	$touchLeft.transition({x: 100, y: -200}, 1000 , 'ease');
+		// } else {
+		// 	$touchRight.transition({x: -100, y: -200}, 1000 , 'ease');
+		// }
+		$touchLeft.transition({x: 100, y: -190}, 1000 , 'ease', function() {
+			$touchLeft.transition({scale:.95,delay:1000}, 200, function() {
+				$touchLeft.transition({scale:1}, 200);
+			});
+		});
+		setTimeout(_updateTouch, touchIntervalShow);
 	}
 	//start it up!
 	_update();

@@ -1,78 +1,78 @@
 .mbta {
 	position: relative;
-	margin-top: 40px;
-	display: none;
 }
 
 .stop {
 	/*position: absolute;*/
-	top: 20px;
-	width: 480px;
+	width: 340px;
+	margin:20px;
 	/*border-radius: 15px;*/
 }
 
 .stopName {
 	color: #555;
-	text-align: center;
+	font-size: 1.5em;
+	text-align: right;
 }
 
-.langdon {
-	left: 60px;
-	float: left;
-}
-.dennis {
-	right: 60px;
-	float: right;
-}
-
-.pic {
-	width: 240px;
+.east, .west {
 	float: left;
 }
 
-.minutes {
-	width: 140px;
-	height: 140px;
-	margin-left: 20px;
-	float: left;
-	border-radius: 70px;
-	color: white;
-	padding-top: 25px;
-}
-
-.minutes span {
-	font-size: 3em;
-}
 .bus {
-	margin-bottom: 60px;
-}
-.bus p {
-	text-align: center;
-}
-.bus p.text {
-	padding-top: 10px;
 	clear: both;
 }
+.data {
+	float: left;
+	font-size: 1.2em;
+	line-height: 1;
+	margin: 45px 0 0 10px;
+}
+.route {
+	float: left;
+	width: 40px;
+	height: 75px;
+	padding:10px;
+	font-size: 1.2em;
+	font-weight: 800;
+	color: #eee;
+	background: url(../img/screensaver/sign.png) no-repeat;
+}
+
+.minutes, i {
+	font-size: 2em;
+	font-weight: 900;
+}
+
+.station {
+	font-size: .9em;
+	font-weight: 700;
+	margin-left: 20px;
+	color: #777;
+}
+
+
 .prox1 {
-	background: #D53E4F;
+	color: hsl(0,70%,50%);
 }
 .prox2 {
-	background: #FC8D59;
+	color: hsl(20,70%,50%);
 }
 .prox3 {
-	background: #FEE08B;
+	color: hsl(40,70%,50%);
 }
 .prox4 {
-	background: #99D594;
+	color: hsl(110,70%,50%);
 }
 .prox5 {
-	background: #3288BD;
+	color: hsl(190,70%,50%);
 }
 
 .touchLeft {
 	position: absolute;
 	/*top: 100%;
 	right: 10%;*/
+	z-index: 99;
 	top: 100%;
 	left: 0;
 }
@@ -84,8 +84,11 @@
 }
 .languages {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 80px;
+	left: 200px;
+	font-weight: 600;
+	color: #37c0ca;
+	width: 100%;
 }
 
 .spanish, .portuguese {
@@ -93,10 +96,49 @@
 }
 
 .slideshow {
-	width: 720px;
-	margin: 0 auto;
+	position: absolute;
+	bottom: -10px;
+	right: 0;
 }
 
 .slideshow img {
 	display: none;
+}
+
+.animatedBusLeft {
+	width: 100%;
+	height: 40px;
+	box-shadow: inset 0 0 8px 8px white;
+	background: url(../img/screensaver/busLeft.png) no-repeat;
+	-webkit-animation: busLeft 5s linear infinite;
+	-moz-animation: busLeft 5s linear infinite;
+	animation: busLeft 5s linear infinite;
+}
+
+@-webkit-keyframes busLeft {
+    from{
+        background-position: 130% 0%;
+    }
+    to{
+        background-position: -30% 0%;
+    }
+}
+
+.animatedBusRight {
+	width: 100%;
+	height: 40px;
+	box-shadow: inset 0 0 8px 8px white;
+	background: url(../img/screensaver/busRight.png) no-repeat;
+	-webkit-animation: busRight 6s linear infinite;
+	-moz-animation: busRight 6s linear infinite;
+	animation: busRight 6s linear infinite;
+}
+
+@-webkit-keyframes busRight {
+    from{
+        background-position: -30% 0%;
+    }
+    to{
+        background-position: 130% 0%;
+    }
 }
