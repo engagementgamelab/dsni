@@ -1,0 +1,9 @@
+.job {
+	border-top: 1px solid #555;
+	padding-top: 10px;
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.job .row {
+	margin: 0;
+}

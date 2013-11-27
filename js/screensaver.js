@@ -49,38 +49,21 @@
 				$('.stop1499 .bus15 .station').text(nextWest.title);
 
 				//add color
-				$('.stop1484 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
-				$('.stop1499 .bus15 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				$('.stop1484 .bus15 .data').removeClass('prox1 prox2');
+				$('.stop1499 .bus15 .data').removeClass('prox1 prox2');
 				
-				var proxClass1 = 'prox';
-				if(nextEast.minutes < 3) {
-					proxClass1 += 1;
-				} else if(nextEast.minutes < 7) {
-					proxClass1 += 2;
-				} else if(nextEast.minutes < 13) {
-					proxClass1 += 3;
-				} else if(nextEast.minutes < 20) {
-					proxClass1 += 4;
+				if(nextEast.minutes < 6) {
+					$('.stop1484 .bus15 .data').addClass('prox1');
 				} else {
-					proxClass1 += 5;
+					$('.stop1484 .bus15 .data').addClass('prox2');
 				}
 				
-				$('.stop1484 .bus15 .data').addClass(proxClass1);
-
-				var proxClass2 = 'prox';
-				if(nextWest.minutes < 3) {
-					proxClass2 += 1;
-				} else if(nextWest.minutes < 7) {
-					proxClass2 += 2;
-				} else if(nextWest.minutes < 13) {
-					proxClass2 += 3;
-				} else if(nextWest.minutes < 20) {
-					proxClass2 += 4;
+				if(nextWest.minutes < 6) {
+					$('.stop1499 .bus15 .data').addClass('prox1');
 				} else {
-					proxClass2 += 5;
+					$('.stop1499 .bus15 .data').addClass('prox2');
 				}
 				
-				$('.stop1499 .bus15 .data').addClass(proxClass2);
 			}
 		});
 		$mbta.getPredictions(41, function(err, results) {
@@ -112,38 +95,21 @@
 				$('.stop1484 .bus41 .station').text(nextEast.title);
 				$('.stop1499 .bus41 .station').text(nextWest.title);
 
-				$('.stop1484 .bus41 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
-				$('.stop1499 .bus11 .minutes').removeClass('prox1 prox2 prox3 prox4 prox5');
+				$('.stop1484 .bus41 .data').removeClass('prox1 prox2');
+				$('.stop1499 .bus11 .data').removeClass('prox1 prox2');
 
-				var proxClass1 = 'prox';
-				if(nextEast.minutes < 3) {
-					proxClass1 += 1;
-				} else if(nextEast.minutes < 7) {
-					proxClass1 += 2;
-				} else if(nextEast.minutes < 13) {
-					proxClass1 += 3;
-				} else if(nextEast.minutes < 20) {
-					proxClass1 += 4;
+				if(nextEast.minutes < 6) {
+					$('.stop1484 .bus41 .data').addClass('prox1');
 				} else {
-					proxClass1 += 5;
+					$('.stop1484 .bus41 .data').addClass('prox2');
 				}
 				
-				$('.stop1484 .bus41 .data').addClass(proxClass1);
-				
-				var proxClass2 = 'prox';
-				if(nextWest.minutes < 3) {
-					proxClass2 += 1;
-				} else if(nextWest.minutes < 7) {
-					proxClass2 += 2;
-				} else if(nextWest.minutes < 13) {
-					proxClass2 += 3;
-				} else if(nextWest.minutes < 20) {
-					proxClass2 += 4;
+				if(nextWest.minutes < 6) {
+					$('.stop1499 .bus41 .data').addClass('prox1');
 				} else {
-					proxClass2 += 5;
+					$('.stop1499 .bus41 .data').addClass('prox2');
 				}
 				
-				$('.stop1499 .bus41 .data').addClass(proxClass2);
 			}
 		});
 		setTimeout(_update, updateInterval);
